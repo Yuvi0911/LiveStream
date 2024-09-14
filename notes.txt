@@ -1,0 +1,53 @@
+clerk, shadcn, tailwindcss, nextjs, prisma + mongodb, ngrok,
+
+jab bhi naya user signup krega toh romantic-muskrat... aise url pr bhej degi site hume vapas se apni wevsite k url pr aa jaana h search bar me put kr k.
+
+ngrok =>
+terminal-1) npm run dev
+terminal-2) run this command to get the static url from ngrok for our website => ngrok http --domain=notably-rested-pangolin.ngrok-free.app 3000
+
+
+cn() => iski help se hum dynamic classes de skte h.
+
+
+1) hum apne api k routes aur frontend k pages app folder k ander likhe ge.
+2) hum jo bhi folder ka naam dege app folder k ander vo us page ya route ka url ka naam hoga. For ex => yadi humare folder ka naam signin h toh humara url http://localhost:3000/signin hoga.
+3) yadi hume frontend ka page bnana h toh hume signin folder(folder ka naam kuch bhi ho skta h lekin fir url ka naam bhi vo hi hoga) k ander page.tsx bnani hogi (file ka naam hamesa page hi hoga yadi hume ushe frontend pr show krna h toh aur usme export default hona chaiye).
+4) yadi hume backend me api ka route bnana h toh hume folder k ander route.ts naam ki file bnani hogi aur usme code likhna hoga.
+5) yadi hum folder k ander folder bna kr file bnate h jaise ki 
+folder1 -> folder2 -> page.tsx / route.ts
+toh humara url http://folder1/folder2 hoga.
+6) yadi hum folder k ander folder bnate h aur chahte h ki folder ka naam url me na aaye toh hum us folder ko () k ander likh skte h jaise ki
+(folder1) -> folder2 -> page.tsx 
+toh ab humara url http://localhost:3000/folder2 hoga. 
+7) yadi hume koi file router pr render hi krvani aur we can say that ki hume koi file frontend pr show hi nhi krni h toh hum _ prefix ki help se folder bna skte h aur uske ander apni file likh skte h ab chahe file ka naam page.tsx hi ku na ho lekin vo frontend pr show nhi hogi. 
+
+
+prisma=>
+1) install prisma = npm i - D prisma
+2) install prisma client => npm i @prisma/client   
+3) npx prisma init
+4) give database url in .env file which is created by step-3 .
+5) modify the schema.prisma on the basics of database.
+6) make models into schema.prisma file
+7) make a file which export the object of the prismaClient.
+8) npx prisma db push
+9) npx prisma generate 
+10) npx prisma studio => run the prisma studio on this url = http://localhost:5555/
+
+
+
+
+
+FEATURES =>
+1) Clerk => Used for authentication.
+2) Livekit + Prism => used for livestream.
+
+
+Livekit => Hum apni website me livestream livekit ki help se dikhaye ge.
+hum apni website ko livekit k webhook k saath attach krege.
+hum livekit ki help se url aur stream key generate krege jab bhi kisi user ko livestream krni hogi.
+livekit se mile url aur stream key ko hum kisi livestream krne vale software jaise ki prism, obs, etc se connect krege. Hum apni website me prism use kr rhe h kyoki obs connect nhi ho rha h livekit se.
+livekit humari website aur prism k beech me gateway ki trh kaam krega.
+iske webhooks aur code ki help se hum data le skte h aur transfer kr skte h.
+jab bhi prism se livestream start krege toh vo livekit me ingress me connection dikhaye gi aur uske baad livekit k code ki help se hum us livestream ko apni website pr dikhaye ge.

@@ -1,6 +1,16 @@
+// ye file base file h hamri website ki. Iske ander hum apni website ko wrapper components k ander wrap kr skte h jaise ki yadi hume apni website k har ek page me navbar chaiye toh hum children component ko navbar component k andar wrap kr dege.
+
+// ye layout.tsx file app folder k ander jitni bhi files aur folder h un sab pr apply hogi.
+
+// hum authentication k liye clerk use kr rhe h toh humne apni website ko clerk k component k ander wrap kr diya h
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider} from '@clerk/nextjs'
+import { dark } from "@clerk/themes";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from 'sonner';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +25,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider appearance={{ baseTheme: dark }}>
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ThemeProvider 
+            attribute="class"
+            forcedTheme="dark"
+            storageKey="gamehub-theme"
+          >
+          <Toaster theme="light" position="bottom-center"/>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
+  </ClerkProvider>
   );
 }
