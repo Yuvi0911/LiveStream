@@ -47,7 +47,14 @@ export const Actions = ({
     const handleBlock = () => {
         startTransition(() => {
             onBlock(userId)
-            .then((data) => toast.success(`You blocked the ${data.blocked.username}`))
+            .then((data) => {
+            // toast.success(`You blocked the ${data.blocked.username}`)
+            if (data && data.blocked) { // Check if 'data' and 'data.blocked' are not undefined
+                toast.success(`You blocked ${data.blocked.username}`);
+            } else {
+                toast.error("Block operation was successful, but user data is missing.");
+            }
+        })
             .catch(() => toast.error("Something went wrong"))
         })
     }

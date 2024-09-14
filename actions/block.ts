@@ -40,7 +40,7 @@ export const onBlock = async (id: string) => {
         revalidatePath(`/u/${self.username}/community`)
 
 
-        return blockedUser
+        return blockedUser;
 
 }
 
